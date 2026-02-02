@@ -21,10 +21,10 @@ The pipeline follows a robust **Bronze-Silver-Gold** medallion architecture buil
 ---
 
 ## 📊 Dashboard Preview
-![Correlation Heatmap](docs/The-Correlation-Heatmap.jpg)
+![Correlation Heatmap](docs/The%20Correlation%20Heatmap.jpg)
 > *Correlation Heatmap identifying price movement relationships between BTC and Altcoins.*
 
-![Price Trend Analysis](docs/Close-over-time-by-symbol.jpg)
+![Price Trend Analysis](docs/Close%20over%20time%20by%20symbol.jpg)
 > *Interactive trend analysis showing 'Close Over Time' with a 30-day moving average overlay.*
 
 ---
