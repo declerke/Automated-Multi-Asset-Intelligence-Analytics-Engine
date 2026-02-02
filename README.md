@@ -12,10 +12,10 @@ To build a scalable, cloud-native ETL pipeline that handles the "Volume, Velocit
 ## 🧬 System Architecture
 The pipeline follows a robust **Bronze-Silver-Gold** medallion architecture built on an "Orchestrate-Transform-Visualize" logic:
 
-1.  [cite_start]**Orchestration (Airflow):** A Dockerized Airflow 2.10.x instance manages the `cryptolake_etl_pipeline` DAG, ensuring tasks like ingestion, transformation, and cloud loading trigger sequentially with built-in retry logic[cite: 1, 2].
-2.  **Processing (PySpark):** Extracts OHLCV (Open, High, Low, Close, Volume) data from Binance endpoints. [cite_start]Spark handles schema enforcement and calculates complex financial features like 30-day rolling windows[cite: 1, 2].
-3.  [cite_start]**Data Lake (GCS):** Raw and processed Parquet files are stored in Google Cloud Storage, organized by `date/symbol` for optimal retrieval[cite: 1].
-4.  [cite_start]**Warehouse (BigQuery):** Data is materialized into partitioned tables, allowing for high-performance SQL analysis and cost-efficient BI consumption[cite: 1].
+1.  **Orchestration (Airflow):** A Dockerized Airflow 2.10.x instance manages the `cryptolake_etl_pipeline` DAG, ensuring tasks like ingestion, transformation, and cloud loading trigger sequentially with built-in retry logic.
+2.  **Processing (PySpark):** Extracts OHLCV (Open, High, Low, Close, Volume) data from Binance endpoints. Spark handles schema enforcement and calculates complex financial features like 30-day rolling windows].
+3.  **Data Lake (GCS):** Raw and processed Parquet files are stored in Google Cloud Storage, organized by `date/symbol` for optimal retrieval.
+4.  **Warehouse (BigQuery):** Data is materialized into partitioned tables, allowing for high-performance SQL analysis and cost-efficient BI consumption.
 5.  **BI Layer:** Interactive Looker Studio dashboards connected directly to BigQuery for real-time reporting.
 
 ---
@@ -32,12 +32,12 @@ The pipeline follows a robust **Bronze-Silver-Gold** medallion architecture buil
 ## 🛠️ Technical Stack
 | Layer | Tool / Library | Purpose / Role |
 | :--- | :--- | :--- |
-| **Orchestration** | Apache Airflow 2.10.x | [cite_start]DAG scheduling, task dependencies, and retry logic[cite: 1]. |
-| **Data Processing** | Spark (PySpark) | [cite_start]Scalable DataFrame transformations and financial window functions[cite: 1]. |
-| **Cloud Platform** | Google Cloud Platform | [cite_start]Hosts the GCS data lake and BigQuery warehouse[cite: 1]. |
-| **Infrastructure** | Docker & Compose | [cite_start]Containerized Airflow environment for 100% reproducibility[cite: 1]. |
-| **IaC** | Terraform ~1.14.x | [cite_start]Declarative management of GCS buckets and BigQuery datasets[cite: 1]. |
-| **Language** | Python 3.10 | [cite_start]Core logic for DAGs, API calls, and custom ETL functions[cite: 1]. |
+| **Orchestration** | Apache Airflow 2.10.x | DAG scheduling, task dependencies, and retry logic. |
+| **Data Processing** | Spark (PySpark) | Scalable DataFrame transformations and financial window functions. |
+| **Cloud Platform** | Google Cloud Platform | Hosts the GCS data lake and BigQuery warehouse. |
+| **Infrastructure** | Docker & Compose | Containerized Airflow environment for 100% reproducibility. |
+| **IaC** | Terraform ~1.14.x | Declarative management of GCS buckets and BigQuery datasets. |
+| **Language** | Python 3.10 | Core logic for DAGs, API calls, and custom ETL functions. |
 | **Analytics** | Looker Studio | Executive-grade visualization of market KPIs. |
 
 ---
@@ -47,12 +47,12 @@ The pipeline follows a robust **Bronze-Silver-Gold** medallion architecture buil
 cryptolake-gcp/
 ├── airflow/
 │   ├── dags/                   # ETL Pipeline (cryptolake_etl_dag.py)
-[cite_start]│   └── logs/                   # Task execution & attempt history [cite: 1, 2]
-[cite_start]├── spark/                      # Local PySpark transformation logic [cite: 1]
-[cite_start]├── terraform/                  # IaC (main.tf, variables.tf, providers) [cite: 1]
-[cite_start]├── docker-compose.yml          # Container orchestration for Airflow stack [cite: 1]
-[cite_start]├── google_credentials.json     # Secure GCP Service Account access [cite: 1]
-[cite_start]├── requirements.txt            # Python dependency manifest [cite: 1]
+│   └── logs/                   # Task execution & attempt history 
+├── spark/                      # Local PySpark transformation logic 
+├── terraform/                  # IaC (main.tf, variables.tf, providers) 
+├── docker-compose.yml          # Container orchestration for Airflow stack 
+├── google_credentials.json     # Secure GCP Service Account access 
+├── requirements.txt            # Python dependency manifest 
 └── README.md
 ```
 
